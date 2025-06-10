@@ -88,7 +88,7 @@ const Watchpage = () => {
 
       {/* Right side: Suggested */}
       <div className="w-[30%] h-[calc(100vh-4rem)] overflow-y-auto px-4">
-        <Suggested />
+        <Suggested videoId={videoId}/>
       </div>
     </div>
   );

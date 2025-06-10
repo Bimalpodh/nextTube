@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { SUGGESTED_VIDEO_API } from "../../utils/constants";
 
-const Suggested = () => {
+const Suggested = ({videoId}) => {
 
 
-  
+  useEffect(()=>{
+    fetchSuggestedVideo()
+
+  },[])
+
+const fetchSuggestedVideo = async () => {
+  const data = await fetch(SUGGESTED_VIDEO_API + videoId);
+  const json = await data.json();
+  console.log(json);
+};
+
+
+
   return (
     <div className=" m-6 w-full ">
       <h2 className="text-md font-semibold w-20 mb-3 text-gray-700">
