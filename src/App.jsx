@@ -1,26 +1,26 @@
-import { Route, Router, RouterProvider, Routes } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
 import Body from "./component/Body/Body";
 import Header from "./component/Header/Header";
 import { Provider } from "react-redux";
 import store from "./ReduxStore/store";
-import { createBrowserRouter } from "react-router-dom";
 import Mainconatiner from "./component/Body/Mainconatiner";
 import Watchpage from "./component/Watchpage/Watchpage";
+import SearchResultsPage from "./component/SearchResultPage/SearchResultsPage";
 
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <Body />,
+    element: (
+      <>
+        <Header />
+        <Body />
+      </>
+    ),
     children: [
-      {
-        path: "/",
-        element: <Mainconatiner />,
-      },
-      {
-        path: "/watch",
-        element: <Watchpage/>,
-      },
+      { path: "/", element: <Mainconatiner /> },
+      { path: "/watch", element: <Watchpage /> },
+      { path: "/results", element: <SearchResultsPage /> }, 
     ],
   },
 ]);
@@ -28,22 +28,9 @@ const appRouter = createBrowserRouter([
 function App() {
   return (
     <Provider store={store}>
-      <div className="flex fixed flex-col ">
-        <Header />
-        <RouterProvider router={appRouter}></RouterProvider>
-      </div>
+      <RouterProvider router={appRouter} />
     </Provider>
   );
 }
 
 export default App;
-
-{
-  /* 
-
-  # Header
-  # Body
-  #   sidebar
-       
-  */
-}

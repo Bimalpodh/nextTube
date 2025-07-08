@@ -5,7 +5,8 @@ import { useSearchParams } from "react-router-dom";
 import { VIDEO_API } from "../../utils/constants";
 import { setWatchVideoData } from "../../ReduxStore/watchVideoDataSlice";
 import Suggested from "./Suggested";
-import CommentsContainer from "./CommentsContainer";
+import CommentContainers from "./CommentContainer";
+import LiveChat from "./LiveChat";
 
 const Watchpage = () => {
   const [searchParam] = useSearchParams();
@@ -35,13 +36,24 @@ const Watchpage = () => {
   const toggleDescription = () => setShowFull((prev) => !prev);
 
   return (
-    <div className={`flex ${isMenuOpen ? "ml-[272px]" : "ml-0"} transition-all`}>
+    <div
+      className={`flex flex-col lg:flex-row ${
+        isMenuOpen ? "ml-[272px]" : "ml-0"
+      } transition-all w-screen  h-[100vh] `}
+       
+    >
       {/* Left side: Main Video + Comments */}
-      <div className="flex-1 max-w-[70%] px-6 overflow-y-auto h-[calc(100vh-4rem)]">
+      <div
+        className="w-full mt-6 lg:w-[70%] px-6 h-[calc(100vh)] overflow-y-auto md:h-[calc-(100vh-4rem)]  "
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+        }}
+      >
         <div>
           <iframe
             width="100%"
-            height="600"
+            height="700"
             className="mt-5 rounded-xl"
             src={"https://www.youtube.com/embed/" + videoId}
             title="YouTube video player"
@@ -81,14 +93,17 @@ const Watchpage = () => {
               )}
             </div>
           </div>
-
-          <CommentsContainer videoId={videoId} />
+          <div className="w-[70%]">
+            {/* <CommentsContainer videoId={videoId} /> */}
+            <CommentContainers />
+          </div>
         </div>
       </div>
 
       {/* Right side: Suggested */}
-      <div className="w-[30%] h-[calc(100vh-4rem)] overflow-y-auto px-4">
-        <Suggested videoId={videoId}/>
+      <div className="w-full lg:w-[30%] h-[calc(100vh)] overflow-y-auto px-4">
+        {/* <Suggested videoId={videoId} /> */}
+        <LiveChat />
       </div>
     </div>
   );

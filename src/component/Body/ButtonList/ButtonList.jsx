@@ -6,7 +6,7 @@ import Button from './Button'
 // const li =["All","Gaming"]
 const ButtonList = () => {
   return (
-    <div className='flex pr-2 shadow-xl  '>
+    <div className='flex pr-2 mt-4 shadow-xl  '>
      <Button name="All"></Button>
      <Button name="Gaming"></Button>
      <Button name="Songs"></Button>

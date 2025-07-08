@@ -13,7 +13,7 @@ const CommentsContainer = ({videoId}) => {
      const comments=await fetch(COMMENTS_API+videoId);
      const json= await comments.json();
      setCommentsList(json?.items || [])
-     console.log(json?.items);
+     console.log(json);
      
 
     }catch (e){
@@ -26,7 +26,7 @@ const CommentsContainer = ({videoId}) => {
 
 
   return (
-    <div className='Container mt-6  w-full'>
+    <div className='Container mt-6  w-full max-w-[]'>
       <h2 className='text-lg font-semibold mb-4'>Comments</h2>
       {commentsList.length==0 ?(
         <p>No comments available. </p>

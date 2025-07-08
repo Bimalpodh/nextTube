@@ -1,7 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
-import { SUGGESTED_VIDEO_API } from "../../utils/constants";
 
-const Suggested = ({videoId}) => {
+const Suggested = () => {
 
 
   useEffect(()=>{
@@ -10,15 +10,16 @@ const Suggested = ({videoId}) => {
   },[])
 
 const fetchSuggestedVideo = async () => {
-  const data = await fetch(SUGGESTED_VIDEO_API + videoId);
+  const data = await fetch("https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=bhoot");
   const json = await data.json();
-  console.log(json);
+  // console.log(json);
+  
 };
 
 
 
   return (
-    <div className=" m-6 w-full ">
+    <div className=" m-6 w-full  flex flex-col flex-wrap">
       <h2 className="text-md font-semibold w-20 mb-3 text-gray-700">
         Suggested Videos
       </h2>
@@ -26,6 +27,18 @@ const fetchSuggestedVideo = async () => {
       <div className="space-y-3">
         <div className="bg-gray-100 p-3 rounded">Suggested Video 1 </div>
         <div className="bg-gray-100 p-3 rounded">Suggested Video 2</div>
+        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
+        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
+        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
+        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
+        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
+        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
+        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
+        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
+        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
+        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
+        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
+        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
         <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
         <div className="bg-gray-100 p-3 rounded">Suggested Video 4</div>
         <div className="bg-gray-100 p-3 rounded">Suggested Video 5</div>

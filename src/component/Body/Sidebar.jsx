@@ -9,207 +9,207 @@ const Sidebar = () => {
   if (!isMenuOpen) return null;
 
   return (
-    <div className="text-lg text-white bg-black w-[272px] h-[calc(100vh-4rem)] overflow-y-auto p-4 fixed top-16 left-0 z-50">
+    <div className={`text-lg text-black bg-white lg:w-[272px] h-[calc(100vh-4rem)] overflow-y-auto p-4 fixed top-16 left-0   md:w-[220px] sm:w-[120px] ` }>
       <div className="m-4 list-none ">
-        <div className="sec1 border-b border-gray-500  ">
+        <div className="sec1 border-b border-gray-500 p-2  ">
           <Link to={"/"}>
-            <div className="flex">
+            <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer ">
               <img
-                src="src\assets\img\home.png"
-                className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+                src="home.png"
+                className="h-7 filter brightness-0 invert-0  sepia saturate-100 hue-rotate-20"
                 alt="home"
               />
-              <li className="pl-4 mb-2">Home</li>
+              <li className="pl-4 mb-1 ">Home</li>
             </div>
           </Link>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer">
             <img
-              src="src\assets\img\shots.png"
-              className="h-7 mt-1 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="shots.png"
+              className="h-7 mt-1 filter brightness-0 invert-0  sepia saturate-100 hue-rotate-20"
               alt="shorts"
             />
-            <li className="pl-4 mb-2">Shorts</li>
+            <li className="pl-4 mb-1 ">Shorts</li>
           </div>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer ">
             <img
-              src="src\assets\img\subscription.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="subscription.png"
+              className="h-7 filter brightness-0 invert-0  sepia saturate-100 hue-rotate-20"
               alt="subscription"
             />
-            <li className="pl-4 mb-2">Subscription</li>
+            <li className="pl-4 mb-1 ">Subscription</li>
           </div>
         </div>
 
-        <div className="sec2 border-b border-gray-500 list-none">
+        <div className="sec2 border-b p-2 border-gray-500 list-none">
           <h1 className="text-2xl mb-4">You</h1>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer ">
             <img
-              src="src\assets\img\history.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="history.png"
+              className="h-7 filter brightness-0 invert-0  sepia saturate-100 hue-rotate-20"
               alt="history"
             />
-            <li className="pl-4 mb-2">History</li>
+            <li className="pl-4 mb-1 ">History</li>
           </div>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer ">
             <img
-              src="src\assets\img\playlist.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="playlist.png"
+              className="h-7 filter brightness-0 invert-0 sepia saturate-100 hue-rotate-20"
               alt="playlist"
             />
-            <li className="pl-4 mb-2">Playlist</li>
+            <li className="pl-4 mb-1 ">Playlist</li>
           </div>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer ">
             <img
-              src="src\assets\img\video.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="video.png"
+              className="h-7 filter brightness-0 invert-0  sepia saturate-100 hue-rotate-20"
               alt="videoes"
             />
-            <li className="pl-4 mb-2">videoes</li>
+            <li className="pl-4 mb-1 ">videoes</li>
           </div>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer ">
             <img
-              src="src\assets\img\course.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="course.png"
+              className="h-7 filter brightness-0 invert-0 sepia saturate-100 hue-rotate-20"
               alt="courses"
             />
-            <li className="pl-4 mb-2">courses</li>
+            <li className="pl-4 mb-1 ">courses</li>
           </div>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer ">
             <img
-              src="src\assets\img\time.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="time.png"
+              className="h-7 filter brightness-0 invert-0  sepia saturate-100 hue-rotate-20"
               alt="watch-later"
             />
-            <li className="pl-4 mb-2">Watch Later</li>
+            <li className="pl-4 mb-1 ">Watch Later</li>
           </div>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer ">
             <img
-              src="src\assets\img\like.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="like.png"
+              className="h-7 filter brightness-0 invert-0 sepia saturate-100 hue-rotate-20"
               alt="lv"
             />
-            <li className="pl-4 mb-2">Liked videoes</li>
+            <li className="pl-4 mb-1 ">Liked videoes</li>
           </div>
         </div>
-        <div className="sec3 border-b border-gray-400 list-none">
+        <div className="sec3 border-b border-gray-400 list-none p-2">
           <h1 className="text-2xl mb-4">Explore</h1>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer ">
             <img
-              src="src\assets\img\trending.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="trending.png"
+              className="h-7 filter brightness-0 invert-0 sepia saturate-100 hue-rotate-20"
               alt="Trending"
             />
-            <li className="pl-4 mb-2">Trending</li>
+            <li className="pl-4 mb-1 ">Trending</li>
           </div>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer ">
             <img
-              src="src\assets\img\bag.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="bag.png"
+              className="h-7 filter brightness-0 invert-0  sepia saturate-100 hue-rotate-20"
               alt="shopping"
             />
-            <li className="pl-4 mb-2">Shopping</li>
+            <li className="pl-4 mb-1 ">Shopping</li>
           </div>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer ">
             <img
-              src="src\assets\img\music.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="music.png"
+              className="h-7 filter brightness-0 invert-0  sepia saturate-100 hue-rotate-20"
               alt="mmusic"
             />
-            <li className="pl-4 mb-2">Music</li>
+            <li className="pl-4 mb-1 ">Music</li>
           </div>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer">
             <img
-              src="src\assets\img\videos.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="videos.png"
+              className="h-7 filter brightness-0 invert-0  sepia saturate-100 hue-rotate-20"
               alt="film"
             />
-            <li className="pl-4 mb-2">Films</li>
+            <li className="pl-4 mb-1 ">Films</li>
           </div>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer">
             <img
-              src="src\assets\img\live.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="live.png"
+              className="h-7 filter brightness-0 invert-0  sepia saturate-100 hue-rotate-20"
               alt="live"
             />
-            <li className="pl-4 mb-2">Live</li>
+            <li className="pl-4 mb-1 ">Live</li>
           </div>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer">
             <img
-              src="src\assets\img\gaming.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="gaming.png"
+              className="h-7 filter brightness-0 invert-0  sepia saturate-100 hue-rotate-20"
               alt="gaming"
             />
-            <li className="pl-4 mb-2">Gaming</li>
+            <li className="pl-4 mb-1 ">Gaming</li>
           </div>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer">
             <img
-              src="src\assets\img\news.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="news.png"
+              className="h-7 filter brightness-0 invert-0  sepia saturate-100 hue-rotate-20"
               alt="news"
             />
-            <li className="pl-4 mb-2">News</li>
+            <li className="pl-4 mb-1 ">News</li>
           </div>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer">
             <img
-              src="src\assets\img\trophy.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="trophy.png"
+              className="h-7 filter brightness-0 invert-0  sepia saturate-100 hue-rotate-20"
               alt="sports"
             />
-            <li className="pl-4 mb-2">Sports</li>
+            <li className="pl-4 mb-1 ">Sports</li>
           </div>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer">
             <img
-              src="src\assets\img\woman.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="woman.png"
+              className="h-7 filter brightness-0 invert-0  sepia saturate-100 hue-rotate-20"
               alt="fashion"
             />
-            <li className="pl-4 mb-2">Fashion & beauty</li>
+            <li className="pl-4 mb-1 ">Fashion & beauty</li>
           </div>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer">
             <img
-              src="src\assets\img\podcasting.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="podcasting.png"
+              className="h-7 filter brightness-0 invert-0  sepia saturate-100 hue-rotate-20"
               alt="podcast"
             />
-            <li className="pl-4 mb-2">Podcasts</li>
+            <li className="pl-4 mb-1 ">Podcasts</li>
           </div>
         </div>
-        <div className="sec4 mt-2 border-b border-gray-400">
-          <div className="flex">
+        <div className="sec4 mt-1  border-b border-gray-400 p-2">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer">
             <img
-              src="src\assets\img\settings.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="settings.png"
+              className="h-7 filter brightness-0 invert-0  sepia saturate-100 hue-rotate-20"
               alt="setting"
             />
-            <li className="pl-4 mb-2">Settings</li>
+            <li className="pl-4 mb-1 ">Settings</li>
           </div>
-          <div className="flex">
+          <div className="flex hover:bg-gray-400 hover:p-1  hover:rounded-2xl cursor-pointer">
             <img
-              src="src\assets\img\feedback.png"
-              className="h-7 filter invert brightness-0 sepia saturate-100 hue-rotate-20"
+              src="feedback.png"
+              className="h-7 filter brightness-0 invert-0  sepia saturate-100 hue-rotate-20"
               alt="feedback"
             />
-            <li className="pl-4 mb-2">send feedback</li>
+            <li className="pl-4 mb-1 ">send feedback</li>
           </div>
         </div>
         <div className="sec5-footer mt-5 mb-10 opacity-45">
           <footer className="">
             <div className="text-sm">
               <label className=" "> About</label>
-              <label className="pl-2"> Press</label>
-              <label className="p-2"> Copyright</label>
-              <label className="pl-2"> Contact us</label>
-              <label className="p-2"> Creator</label>
-              <label className="p-2"> Advertise</label>
-              <label className="p-2"> Developers</label>
+              <label className="pl-1 "> Press</label>
+              <label className="p-1 "> Copyright</label>
+              <label className="pl-1 "> Contact us</label>
+              <label className="p-1 "> Creator</label>
+              <label className="p-1 "> Advertise</label>
+              <label className="p-1 "> Developers</label>
             </div>
             <div className="text-sm ">
               <label className="">Terms</label>
-              <label className="p-2">Privacy</label>
-              <label className="p-2">Policy & safety</label>
-              <label className="p-2">How youtube work</label>
-              <label className="p-2">Test new features</label>
-              <p className="mb-2">© 2025 Bimal Podh</p>
+              <label className="p-1 ">Privacy</label>
+              <label className="p-1 ">Policy & safety</label>
+              <label className="p-1 ">How youtube work</label>
+              <label className="p-1 ">Test new features</label>
+              <p className="mb-1 ">© 2025 Bimal Podh</p>
             </div>
           </footer>
         </div>

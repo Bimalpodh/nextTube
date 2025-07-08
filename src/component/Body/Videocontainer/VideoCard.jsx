@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 const VideoCard = ({ info }) => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
@@ -7,18 +7,19 @@ const VideoCard = ({ info }) => {
 
   const { snippet, statistics } = info;
   const { channelTitle, thumbnails, title } = snippet;
-
+  // console.log(info);
+  
   return (
     <div
-      className={`p-2 m-2 shadow-2xl rounded-lg transition-all duration-300 ${
+      className={`p-2 m-2 h-[370px] shadow-2xl rounded-lg transition-all duration-300 ${
         isMenuOpen ? "w-[350px]" : "w-[300px]"
-      }`}
+      }   ${isMenuOpen ? "p-3" : "ml-10"} `  }
     >
       <img
         className={`rounded-lg w-full h-auto object-cover transition-all duration-300 ${
-          isMenuOpen ? "max-h-[200px]" : "max-h-[160px]"
+          isMenuOpen ? "h-[200px]" : "h-[280px]"
         }`}
-        src={thumbnails?.maxres?.url || thumbnails?.high?.url}
+        src={ thumbnails?.high?.url}
         alt={title}
       />
 
@@ -30,5 +31,7 @@ const VideoCard = ({ info }) => {
     </div>
   );
 };
+
+
 
 export default VideoCard;

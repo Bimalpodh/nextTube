@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setWatchVideoData } from "../../../ReduxStore/watchVideoDataSlice";
 
-const countries = ["IN", "US", "GB", "JP", "AU", "AX", "BR", "CH", "FR", "ES"];
+const countries = ["IN", "US", "GB", "JP", "AU", "BR", "CH", "FR", "ES","NL"];
 
 const VideoContainer = () => {
   const [videos, setVideos] = useState([]);
@@ -51,13 +51,14 @@ const getVideos = async () => {
   if (loading) return <Shimmer />;
 
   return (
-    <div className="flex flex-wrap">
-      {videos.map((video) => (
+    <div className="flex flex-wrap ">
+      {videos.map((video,index) => (
         <Link
+          key={video?.id?.videoId || index}
           to={"/watch?v=" + video?.id}
           onClick={() => dispatch(setWatchVideoData(video))}
         >
-          <VideoCard  key={video?.id?.videoId || video?.id} info={video} />
+          <VideoCard   info={video} />
         </Link>
       ))}
     </div>

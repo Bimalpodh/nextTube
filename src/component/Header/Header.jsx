@@ -1,70 +1,48 @@
+// components/Header/Header.jsx
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../../ReduxStore/appSlice";
+import SearchBar from "./SearchBar";
 
 const Header = () => {
   const dispatch = useDispatch();
 
-  const toggleSidebar = () => {
-    dispatch(toggleMenu());
-  };
-
   return (
-    <div className="flex justify-between items-center fixed top-0 left-0 w-full bg-black h-16 px-4 shadow-md z-50">
+    <div className="flex justify-between items-center fixed top-0 left-0 w-screen bg-white h-20 px-4 shadow-md z-50">
       {/* Left: Hamburger + Logo */}
       <div className="flex items-center gap-3">
         <img
-          src="src/assets/img/hamburger.png"
+          src="hamburger.png"
           alt="hamburger"
-          className="h-5 cursor-pointer filter invert"
-          onClick={toggleSidebar}
+          className="h-5 cursor-pointer filter brightness-0 invert-0"
+          onClick={() => dispatch(toggleMenu())}
         />
-
-        
-        <img src="src/assets/img/youtube.png" alt="logo" className="h-8" />
-        <span className="text-white text-2xl font-semibold">NextTube</span>
+        <img src="youtube.png" alt="logo" className="h-8" />
+        <span className="hidden md:inline text-black text-xl font-semibold">
+          NextTube
+        </span>
       </div>
 
-      {/* Center: Search Bar */}
-      <div className="flex items-center gap-3 max-w-[600px] w-full mx-6">
-        <div className="flex flex-grow">
-          <input
-            type="text"
-            placeholder="Search"
-            className="bg-transparent border border-gray-500 h-10 px-4 text-white outline-none w-full rounded-l-full"
-          />
-          <button className="bg-[#363738] w-12 h-10 rounded-r-full hover:bg-[#505253] flex items-center justify-center">
-            <img
-              src="src/assets/img/search.png"
-              alt="searchIcon"
-              className="h-5 filter invert"
-            />
-          </button>
-        </div>
-        <button className="bg-[#363738] h-10 w-10 rounded-full flex items-center justify-center hover:bg-[#505253]">
-          <img
-            src="src/assets/img/mic.png"
-            alt="micIcon"
-            className="h-5 filter invert"
-          />
-        </button>
+      {/* Center: SearchBar */}
+      <div className="flex-1 flex justify-center px-4">
+        <SearchBar />
       </div>
 
       {/* Right: Icons */}
-      <div className="flex items-center gap-4">
-        <button className="bg-[#363738] h-10 px-4 rounded-full text-white hover:bg-[#505253]">
+      <div className="flex items-center gap-2 sm:gap-4">
+        <button className="bg-[#363738] h-10 w-24 hidden md:flex items-center justify-center rounded-full text-white hover:bg-[#505253] text-sm">
           + Create
         </button>
-        <div className="h-10 w-10 rounded-full flex items-center justify-center hover:bg-[#505253]">
+        <div className="h-10 w-10 rounded-full flex items-center justify-center hover:bg-[#afcbda]">
           <img
-            src="src/assets/img/notification-bell.png"
+            src="notification-bell.png"
             alt="bell"
-            className="h-6 filter invert"
+            className="h-5 sm:h-6 filter brightness-0 invert-0"
           />
         </div>
         <img
-          src="src/assets/img/user.png"
+          src="user.png"
           alt="user"
-          className="h-8 w-8 rounded-full filter invert object-cover"
+          className="h-8 w-8 cursor-pointer rounded-full filter brightness-0 invert-0 object-cover"
         />
       </div>
     </div>
