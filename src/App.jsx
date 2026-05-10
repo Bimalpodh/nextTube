@@ -10,7 +10,6 @@ import Shimmer from "./component/shimmer/Shimmer";
 const Mainconatiner = lazy(() => import("./component/Body/Mainconatiner"));
 const Watchpage = lazy(() => import("./component/Watchpage/Watchpage"));
 const SearchResultsPage = lazy(() => import("./component/SearchResultPage/SearchResultsPage"));
-const Demo = lazy(() => import("./component/Demo/Demo"));
 
 const appRouter = createBrowserRouter([
   {
@@ -43,14 +42,6 @@ const appRouter = createBrowserRouter([
         element: (
           <Suspense fallback={<Shimmer />}>
             <SearchResultsPage />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/demo",
-        element: (
-          <Suspense fallback={<Shimmer />}>
-            <Demo />
           </Suspense>
         ),
       },

@@ -17,11 +17,12 @@ const Header = () => {
           className="h-5 cursor-pointer filter brightness-0 invert-0"
           onClick={() => dispatch(toggleMenu())}
         />
-        <Link className="none" to={"/"}>
-        <img src="youtube.png" alt="logo" className="h-8" /></Link>
-        <span className="hidden md:inline text-black text-xl font-semibold">
-          NextTube
-        </span>
+        <Link className="flex items-center gap-2 hover:opacity-90 transition-opacity" to={"/"}>
+          <img src="youtube.png" alt="logo" className="h-8 transition-transform hover:scale-105 active:scale-95" />
+          <span className="hidden md:inline text-black text-xl font-bold tracking-tight">
+            NextTube
+          </span>
+        </Link>
         
       </div>
 
