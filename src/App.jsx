@@ -4,9 +4,13 @@ import Body from "./component/Body/Body";
 import Header from "./component/Header/Header";
 import { Provider } from "react-redux";
 import store from "./ReduxStore/store";
-import Mainconatiner from "./component/Body/Mainconatiner";
-import Watchpage from "./component/Watchpage/Watchpage";
-import SearchResultsPage from "./component/SearchResultPage/SearchResultsPage";
+import { lazy, Suspense } from "react";
+import Shimmer from "./component/shimmer/Shimmer";
+
+const Mainconatiner = lazy(() => import("./component/Body/Mainconatiner"));
+const Watchpage = lazy(() => import("./component/Watchpage/Watchpage"));
+const SearchResultsPage = lazy(() => import("./component/SearchResultPage/SearchResultsPage"));
+const Demo = lazy(() => import("./component/Demo/Demo"));
 
 const appRouter = createBrowserRouter([
   {
@@ -18,9 +22,38 @@ const appRouter = createBrowserRouter([
       </>
     ),
     children: [
-      { path: "/", element: <Mainconatiner /> },
-      { path: "/watch", element: <Watchpage /> },
-      { path: "/results", element: <SearchResultsPage /> }, 
+      {
+        path: "/",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Mainconatiner />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/watch",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Watchpage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/results",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <SearchResultsPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/demo",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Demo />
+          </Suspense>
+        ),
+      },
     ],
   },
 ]);

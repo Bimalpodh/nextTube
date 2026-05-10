@@ -9,7 +9,7 @@ const Sidebar = () => {
   if (!isMenuOpen) return null;
 
   return (
-    <div className={`text-lg text-black bg-white lg:w-[272px] h-[calc(100vh-4rem)] overflow-y-auto p-4 fixed top-16 left-0   md:w-[220px] sm:w-[120px] ` }>
+    <div className={`text-lg text-black bg-white lg:w-[272px] h-[calc(100vh-5rem)] overflow-y-auto p-4 fixed top-20 left-0 md:w-[220px] sm:w-[120px]`}>
       <div className="m-4 list-none ">
         <div className="sec1 border-b border-gray-500 p-2  ">
           <Link to={"/"}>

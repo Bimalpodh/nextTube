@@ -1,11 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-const Button = ({name}) => {
+const Button = ({ name, isActive, onClick, className = "" }) => {
   return (
-    <div>
-       <button className="px-5 py-2 m-5 bg-gray-300 text-center rounded-lg ">{name}</button>
-    </div>
-  )
-}
+    <button
+      onClick={onClick}
+      className={`px-4 py-1.5 rounded-lg transition-all duration-200 font-medium text-sm whitespace-nowrap active:scale-95 ${
+        isActive 
+          ? "bg-black text-white shadow-md" 
+          : "bg-gray-100 text-black hover:bg-gray-200"
+      } ${className}`}
+    >
+      {name}
+    </button>
+  );
+};
 
-export default Button
+export default Button;

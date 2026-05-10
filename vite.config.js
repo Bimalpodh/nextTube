@@ -7,7 +7,17 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    
-
   ],
+  build: {
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          reactVendor: ["react", "react-dom"],
+          reduxVendor: ["react-redux", "@reduxjs/toolkit"],
+          routerVendor: ["react-router-dom"],
+        },
+      },
+    },
+  },
 })

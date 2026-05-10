@@ -1,47 +1,87 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setWatchVideoData } from "../../ReduxStore/watchVideoDataSlice";
+import { YOUTUBE_VIDEOES_API, YOUTUBE_SEARCH_RESULT_API } from "../../utils/constants";
 
-const Suggested = () => {
+const Suggested = ({ videoId, filter }) => {
+  const [suggestedVideos, setSuggestedVideos] = useState([]);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    fetchSuggestedVideos();
+  }, [videoId, filter]);
 
-  useEffect(()=>{
-    fetchSuggestedVideo()
+  const fetchSuggestedVideos = async () => {
+    try {
+      let url = YOUTUBE_VIDEOES_API;
 
-  },[])
+      if (filter && filter !== "All") {
+        if (filter.startsWith("From ")) {
+          const channelName = filter.replace("From ", "");
+          url = YOUTUBE_SEARCH_RESULT_API + encodeURIComponent(channelName);
+        } else if (filter === "Recently uploaded") {
+          url = YOUTUBE_SEARCH_RESULT_API + "&order=date";
+        } else {
+          url = YOUTUBE_SEARCH_RESULT_API + encodeURIComponent(filter);
+        }
+      }
 
-const fetchSuggestedVideo = async () => {
-  const data = await fetch("https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=bhoot");
-  const json = await data.json();
-  // console.log(json);
-  
-};
+      const data = await fetch(url);
+      const json = await data.json();
+      
+      // Handle different API response structures (popular vs search)
+      const items = json?.items?.map(item => {
+        if (typeof item.id === 'object') {
+          return { ...item, id: item.id.videoId };
+        }
+        return item;
+      }) || [];
 
+      const filteredVideos = items.filter((video) => video.id !== videoId);
+      setSuggestedVideos(filteredVideos);
+    } catch (error) {
+      console.error("Error fetching suggested videos:", error);
+    }
+  };
 
+  if (suggestedVideos.length === 0) return null;
 
   return (
-    <div className=" m-6 w-full  flex flex-col flex-wrap">
-      <h2 className="text-md font-semibold w-20 mb-3 text-gray-700">
-        Suggested Videos
-      </h2>
-      {/* Replace this block with mapped suggestions */}
-      <div className="space-y-3">
-        <div className="bg-gray-100 p-3 rounded">Suggested Video 1 </div>
-        <div className="bg-gray-100 p-3 rounded">Suggested Video 2</div>
-        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
-        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
-        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
-        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
-        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
-        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
-        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
-        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
-        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
-        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
-        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
-        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
-        <div className="bg-gray-100 p-3 rounded">Suggested Video 3</div>
-        <div className="bg-gray-100 p-3 rounded">Suggested Video 4</div>
-        <div className="bg-gray-100 p-3 rounded">Suggested Video 5</div>
+    <div className="flex flex-col gap-3 p-2">
+      <h2 className="text-lg font-bold mb-2">Suggested Videos</h2>
+      <div className="flex flex-col gap-3">
+        {suggestedVideos.map((video) => (
+          <Link
+            key={video?.id}
+            to={"/watch?v=" + video?.id}
+            onClick={() => dispatch(setWatchVideoData(video))}
+            className="flex gap-2 hover:bg-gray-100 p-1 rounded-lg transition-colors group"
+          >
+            {/* Thumbnail */}
+            <div className="relative min-w-[160px] h-[90px]">
+              <img
+                src={video?.snippet?.thumbnails?.medium?.url}
+                alt={video?.snippet?.title}
+                className="w-full h-full object-cover rounded-lg"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Video Info */}
+            <div className="flex flex-col overflow-hidden">
+              <h3 className="text-sm font-semibold line-clamp-2 leading-tight group-hover:text-blue-600">
+                {video?.snippet?.title}
+              </h3>
+              <p className="text-xs text-gray-600 mt-1">
+                {video?.snippet?.channelTitle}
+              </p>
+              <p className="text-xs text-gray-500">
+                {parseInt(video?.statistics?.viewCount).toLocaleString()} views
+              </p>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );

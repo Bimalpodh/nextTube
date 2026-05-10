@@ -2,6 +2,7 @@
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../../ReduxStore/appSlice";
 import SearchBar from "./SearchBar";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -16,10 +17,12 @@ const Header = () => {
           className="h-5 cursor-pointer filter brightness-0 invert-0"
           onClick={() => dispatch(toggleMenu())}
         />
-        <img src="youtube.png" alt="logo" className="h-8" />
+        <Link className="none" to={"/"}>
+        <img src="youtube.png" alt="logo" className="h-8" /></Link>
         <span className="hidden md:inline text-black text-xl font-semibold">
           NextTube
         </span>
+        
       </div>
 
       {/* Center: SearchBar */}
