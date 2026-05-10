@@ -1,6 +1,6 @@
 # 🎬 NextTube - Premium Video Streaming Platform
 
-![NextTube Banner](https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop)
+![NextTube Banner](./public/NextTube_Dashboard_SS.png)
 
 NextTube is a high-performance, feature-rich YouTube clone built with the latest modern web technologies. It features dynamic category filtering, a real-time live chat simulation, intelligent suggested videos, and a pixel-perfect responsive design.
 
@@ -40,7 +40,7 @@ NextTube is a high-performance, feature-rich YouTube clone built with the latest
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/nextTube.git
+git clone https://github.com/Bimalpodh/nextTube
 cd nextTube
 ```
 
@@ -74,9 +74,6 @@ To deploy, simply connect your repository to Vercel and ensure you add the `VITE
 
 ---
 
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
